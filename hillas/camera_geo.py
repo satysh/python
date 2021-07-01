@@ -36,6 +36,24 @@ class CameraGeo(object):
                 pair = (pix.clr_id, pix.pix_id)
                 nei_list.append(pair)
         return nei_list
+    def get_pixel_xy(self, clr_id, pix_id):
+        pix = self.get_pixel(clr_id, pix_id)
+        if pix != None:
+                return (pix.pix_x, pix.pix_y)
+        else:
+            return (None, None)
+    def get_pixel_x(self, clr_id, pix_id):
+        pix = self.get_pixel(clr_id, pix_id)
+        if pix != None:
+                return pix.pix_x
+        else:
+            return None
+    def get_pixel_y(self, clr_id, pix_id):
+        pix = self.get_pixel(clr_id, pix_id)
+        if pix != None:
+                return pix.pix_y
+        else:
+            return None
 
 #read txt
 f = open('input/xy.txt', 'r')
@@ -81,5 +99,11 @@ for clr in range(1, 23):
             for i in range(len(nei_list)):
                 neiclrid, neipixid = nei_list[i]
                 print(' '+str(neiclrid)+', '+str(neipixid))
+'''
+
+'''
+print(geometry.get_pixel_xy(1, 1))
+print(geometry.get_pixel_x(1, 1))
+print(geometry.get_pixel_y(1, 1))
 '''
 
